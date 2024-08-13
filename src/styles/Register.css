@@ -1,0 +1,196 @@
+div#register {
+    overflow: hidden;
+}
+div#register::-webkit-scrollbar {
+  display: none;
+    /* width: 1dvh;
+  }
+  
+
+  ::-webkit-scrollbar-track {
+    background: rgb(53, 53, 53);
+  }
+  
+
+  ::-webkit-scrollbar-thumb {
+    background: #4e4e4e;
+  }
+  
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(61, 61, 61);
+  } */
+
+}
+
+div#register p.subtitle{
+    margin-top: -4dvh;
+    font-size: 3dvh;
+    height: 4dvh;
+    line-height: 4dvh;
+    background-color: rgb(29, 142, 29);;
+}
+div#register div#registerFields{
+    width: 79%;
+    height: 48.8dvh;
+    margin-top: -1.5dvh;
+    margin-left: 10%;
+    padding: 0.8%;
+    padding-bottom: 0%;
+
+    background-color: rgb(37, 49, 41);
+    border-radius: 1dvh;
+    box-shadow: rgb(0,0,0,0.4) 0px 0px 3px;
+    
+    overflow-y: scroll;
+}
+div#register div#registerFields::-webkit-scrollbar{
+    display: none;
+}
+div#register div#registerFields input{
+    width: 96.6%;
+    height: 15.2%;
+    line-height: 16.6%;
+    padding-left: 2dvh;
+    margin-bottom: 0.6%;
+
+    position: relative;
+
+    background-color: rgb(28, 37, 31);
+    border: none;
+    border-radius: 1dvh;
+    
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 2dvh;
+    transition: background-color 0.2s;
+    
+}
+div#register div#registerFields input:hover{
+    background-color: rgb(23, 30, 25);
+}
+
+div#register div#registerFields div.exp {
+    background-color: rgb(35, 35, 35, 0.6);
+    border-radius: 1dvh;
+    justify-content: center;
+    padding: 0.6%;
+    padding-bottom: 0.1%;
+    margin-bottom: 2%;
+
+    overflow: hidden;
+}
+div#register div#registerFields div.exp input{
+    height: 5dvh;
+    font-size: 1.4dvh;
+    display: inline-block;
+}
+div#register div#registerFields div.exp div.dateFields{
+    width: 39%; 
+    color: white; 
+    font-family:'Calibri'; 
+    font-weight:bold;
+    display: inline-block;
+    margin-left: 1%;
+    font-size: 1.6dvh;
+    text-align: center;
+}
+div#register div#registerFields div.exp div.dateFields input.dateField{
+    width: 25%;
+}
+div#register div#registerFields div.exp button#save_del{
+    position: relative;
+    float: right;
+    right: -2px;
+    margin-top: -6dvh;
+    height: 11.7dvh;
+    width: 16.2%;
+
+    border: none;
+    box-shadow: black 0px 0px 3px;
+    
+
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 2dvh;
+    
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+div#register div#registerFields div.exp button.del#save_del{
+    background-color: rgb(131, 23, 23);
+}
+div#register div#registerFields div.exp button.del#save_del:hover{
+    background-color: rgb(77, 15, 15);
+}
+div#register div#registerFields div.exp button.save#save_del{
+    background-color: rgb(45, 131, 23);
+}
+div#register div#registerFields div.exp button.save#save_del:hover{
+    background-color: rgb(34, 92, 18);
+}
+
+div#register div#registerFields div.addExp{
+    width: 10%;
+    line-height: 5.5dvh;
+    position: relative;
+    margin: 0 auto;
+    
+    background-color: rgb(33, 33, 33);
+    border-radius: 1dvh;
+    
+    color: rgba(245, 245, 245, 0.84);
+    font-size: 5dvh;
+    font-weight: bolder;
+    text-align: center;
+    
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+div#register div#registerFields div.addExp:hover{
+    background-color: rgb(21, 21, 21);
+}
+
+div#arrows{
+    background-color: blue;
+    width: 80%;
+    left: 10%;
+    height: 4dvh;
+    position: absolute;
+    background-color: rgb(20, 20, 20, 0.2);
+    margin-top: 1dvh;
+    padding-top: 1%;
+    height: 6dvh;
+    border-radius: 1dvh;
+
+}
+div#arrows div.arrow{
+    width: 48%;
+    line-height: 5.5dvh;
+    position: relative;
+    margin-left:1%; margin-right: 1%;
+    display: inline-block;
+    position: absolute;
+    
+    background-color: rgb(33, 33, 33);
+    border-radius: 1dvh;
+    
+    color: rgba(245, 245, 245, 0.84);
+    font-size: 5dvh;
+    text-align: center;
+    
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+div#arrows div.arrow:not(.unabled):hover{
+    background-color: rgb(21, 21, 21);
+}
+div#arrows div.unabled{
+    opacity: 0.6;
+}
+div#arrows div#r{
+    left: 50%
+}
+div#arrows div#l{
+    
+}
