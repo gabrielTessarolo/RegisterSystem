@@ -44,6 +44,7 @@ div#register p{
   background-color: rgb(13, 106, 13);
 }
 div#infos p{
-  background-color: rgb(13, 27, 106);
+  margin-top: 1.5dvh;
+  background-color: rgb(29, 49, 160);
 }
 

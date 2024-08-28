@@ -1,0 +1,96 @@
+
+div#infos p.subtitle{
+    margin-top: -4dvh;
+    font-size: 3dvh;
+    height: 4dvh;
+    line-height: 4dvh;
+    background-color: rgb(66, 58, 221);;
+}
+
+div#infos div#currField {
+    width: 79%;
+    height: 48.8dvh;
+    margin-top: -1.5dvh;
+    margin-left: 10%;
+    padding: 0.8%;
+    padding-bottom: 0%;
+
+    background-color: rgb(37, 49, 41);
+    border-radius: 1dvh;
+    box-shadow: rgb(0,0,0,0.4) 0px 0px 3px;
+    
+    overflow-y: scroll;
+}
+
+div#infos div#currField::-webkit-scrollbar{
+    width: 1dvh;
+    height: 1dvh;
+}
+div#infos div#currField::-webkit-scrollbar-track {
+    background: rgb(53, 53, 53);
+}
+div#infos div#currField::-webkit-scrollbar-thumb {
+    background: #4e4e4e;
+}
+div#infos div#currField::-webkit-scrollbar-thumb:hover {
+    background: rgb(61, 61, 61);
+}
+
+
+
+div#modelCurr {
+    background-color: white;
+    width: 210pt;
+    height: 297pt;
+    margin: 0 auto;
+}
+div#modelCurr h1{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 15pt;
+    text-align: center;
+
+}
+div#modelCurr h1#name{
+    font-size: 12pt;
+    padding-top: 10pt;
+    margin-bottom: -15pt;
+}
+div#modelCurr h1#age{
+    padding-top: 10pt;
+    font-size: 10pt;
+    margin-bottom: -15pt;
+}
+div#modelCurr h1#contact{
+    padding-top: 15pt;
+    font-size: 8pt;
+}
+div#modelCurr div#header{
+    border-bottom: solid black;
+    width: 90%;
+
+    margin-left: 5%;
+}
+
+div.expDiv{
+    width: 90%;
+    margin-left: 5%;
+
+}
+
+div#modelCurr div.expDiv h1{
+    font-size: 8pt;
+    font-weight: 1000;
+    text-align: left;
+    padding: 3px;
+}
+div#modelCurr div.expDiv h2{
+    font-family:Arial, Helvetica, sans-serif;
+
+    font-size: 7pt;
+    text-align: left;
+    padding: 3px;
+}
+div#modelCurr div#exps h1.subtitle{
+    font-weight: 800;
+    font-size: 10pt;
+}

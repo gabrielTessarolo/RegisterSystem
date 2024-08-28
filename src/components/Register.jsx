@@ -17,7 +17,6 @@ function SaveButton({type, modelExp, experience, act, values, indexOfExp}){
     function change(){
         mode=="save"?changeMode("del"):null;
     }
-    // ! Corrigir a lógica de deletar.
     return (
         <button id="save_del" className={mode} onClick={(e)=>{
             if(mode=="save"){
@@ -39,21 +38,25 @@ function Experience({type = "academic", act, values, indexOfExp}){
     const types = [
         ["academic", "schoolName", "titleStudy", "initDate", "finishDate", ["a instituição de estudo", "o título da formação"]],
         ["professional", "company", "positionTitle", "initDate", "finishDate", ["a empresa empregadora", "o cargo exercido"]]];
-    const experience = {};
+    const [experience, attExperience] = useState({})
+    function modifyInput(idInput, exp, e){
+        const newExp = {...experience}
+        newExp[exp[idInput]] = e.target.value;
+        attExperience(newExp)
+    }
     return (
         <div className="exp">
             {/* Compara o argumento com as informações ali e retorna se bater com o primeiro elemento */}
             {types.map(exp => type == exp[0]?<div style={{display:"inline-block"}}>
                     {/* Inputs que ao serem modificados definem as propriedades do objeto experiência, que ao salvar será adicionado ao currículo */}
-                    <input value={values[exp[2]]} className={exp[2]} onChange={(e)=> {experience[exp[2]]=e.target.value}} placeholder={`Digite ${exp[5][1]}`} style={{width: "78.6%"}}></input>
-                    <input value={values[exp[1]]} className={exp[1]} onChange={(e)=> {experience[exp[1]]=e.target.value}} placeholder={`Digite ${exp[5][0]}`} style={{width: "40%"}}></input>
+                    <input value={values[exp[2]]} className={exp[2]} onChange={(e)=> {modifyInput(2,exp,e)}} placeholder={`Digite ${exp[5][1]}`} style={{width: "78.6%"}}></input>
+                    <input value={values[exp[1]]} className={exp[1]} onChange={(e)=> {modifyInput(1,exp,e)}} placeholder={`Digite ${exp[5][0]}`} style={{width: "40%"}}></input>
                     
                     <div className="dateFields">
-                        De <input value={values[exp[3]]} className="dateField" onChange={(e)=> {experience[exp[3]]=e.target.value}} minLength={4} maxLength={4}></input> -
-                        Até <input value={values[exp[4]]} className="dateField" onChange={(e)=> {experience[exp[4]]=e.target.value}} minLength={4} maxLength={4}></input>
+                        De <input type="number" max="2030" min="1900" value={values[exp[3]]} className="dateField" onChange={(e)=> {modifyInput(3,exp,e)}} minLength={4} maxLength={4}></input> -
+                        Até <input type="number" max="2030" min={experience.initDate} value={values[exp[4]]} className="dateField" onChange={(e)=> {modifyInput(4,exp,e)}} minLength={4} maxLength={4}></input>
                     </div>
-                    <SaveButton type={"academic"} modelExp={exp} experience={experience} act={act} values={values} indexOfExp={indexOfExp}/>
-                    
+                    <SaveButton type={type} modelExp={exp} experience={experience} act={act} values={values} indexOfExp={indexOfExp}/>
             </div>:null)}
         </div>
     )
@@ -95,9 +98,11 @@ function RegField({index, handles, curr}){
             </div>
         )
     }else{
+        const listExps = curr.exps["professional"]
         return(
             <div id="registerFields">
-
+                {listExps.map((exp,idx)=> <Experience values={exp} indexOfExp={idx} type="professional" act={handles.forExp}/>)}
+                <AddExp type="professional" act={handles.forExp}/>
             </div>
         )
     }
@@ -107,9 +112,9 @@ function RegField({index, handles, curr}){
 // direção (0 - left), (1 - right)
 // action: função a ser chamada
 // index do Register para aumenta-lo ou diminui-lo
-function Arrow({dir, action, index}){
+export function Arrow({dir, action, index, limit=1}){
     // Dados de cada seta: [index, id, soma do indexRegister, graus de rotação de imagem, indexRegister em que são desativadas]
-    const arrowData = [[0, "l", -1, 180, 0], [1, "r", 1, 0, 2]]
+    const arrowData = [[0, "l", -1, 180, 0], [1, "r", 1, 0, limit]]
     return (
         <div style={{transform: `rotate(${arrowData[dir][3]}deg)`}} 
              className={"arrow"+(index==arrowData[dir][4]?" unabled":"")} id={arrowData[dir][1]}
@@ -130,7 +135,7 @@ export default function Register({handles, curr}){
         <RegField index={actRegs} handles={handles} curr={curr}/>
         <div id="arrows">
             <Arrow dir={0} action={updateRegs} index={actRegs}/>
-            <Arrow dir={1} action={updateRegs} index={actRegs}/>
+            <Arrow dir={1} action={updateRegs} index={actRegs} limit={2}/>
         </div>
       </div>
     )

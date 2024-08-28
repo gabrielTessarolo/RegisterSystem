@@ -180,9 +180,9 @@ div#arrows div.arrow{
     text-align: center;
     
     transition: background-color 0.2s;
-    cursor: pointer;
 }
 div#arrows div.arrow:not(.unabled):hover{
+    cursor: pointer;
     background-color: rgb(21, 21, 21);
 }
 div#arrows div.unabled{
