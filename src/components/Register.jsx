@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import '../styles/Register.css'
 
+// addExp utilizado para adicionar novos blocos de experiência, inicialmente vaziosj (a serem preenchidos)
 function AddExp({type = "academic", act}){
     return (
         <div className="addExp" onClick={()=>{
@@ -10,10 +11,15 @@ function AddExp({type = "academic", act}){
     )
 }
 
+// SaveButton utilizado para salvar e deletar as experiências informadas
 function SaveButton({type, modelExp, experience, act, values, indexOfExp}){
+    // Validação das informações para ser salvo
     const hasValidInfos = () => ![modelExp[1], modelExp[2], modelExp[3], modelExp[4]].some(x=>(!experience.hasOwnProperty(x)||experience[x]==""))
+    // Verificação se a experiência construída já possui valores definidos
     const isSet = () => [1,2,3,4].filter(x=> ((values[modelExp[x]]!="") && (values[modelExp[x]]!=undefined))).length>=4
+    // se isSet (está setado) o botão já será gerado no estado de deletar, caso contrário, no estado de salvar  
     const [mode, changeMode] = useState(isSet()?"del":"save")
+    // Função que altera o estado do botão para deletar, uma vez salvo
     function change(){
         mode=="save"?changeMode("del"):null;
     }
